@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIPANDAI - Dashboard Guru</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #1e3a5f 100%); }
+    .card-shadow { box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+    .btn-primary { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); }
+    .btn-primary:hover { background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%); }
+    .input-focus:focus { box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); }
+    .fade-in { animation: fadeIn 0.3s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .spinner { border: 3px solid #f3f3f3; border-top: 3px solid #2563eb; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @media print {
+      body * { visibility: hidden; }
+      #print-content, #print-content * { visibility: visible; }
+      #print-content { position: absolute; left: 0; top: 0; width: 210mm; }
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+ </head>
+ <body class="h-full bg-gray-50">
+  <div id="app" class="h-full overflow-auto"></div>
+  <script src="app.js"></script>
+  <script>
+    initSDKs();
+    if (guardPage('guru')) {
+      renderGuruDashboard();
+    }
+  </script>
+ </body>
+</html>
