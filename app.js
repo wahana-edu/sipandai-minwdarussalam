@@ -1,4 +1,4 @@
-    // Configuration
+// Configuration
     const CONFIG = {
       SPREADSHEET_ID: '184zeiTyiUxRY-qr5hs57KUoShI1vrQ0-eaOQWXSZijY',
       SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbwyp_aIE4hitPjuUa6OXYe9L28i8kxdd2Vkdz4yDMa1vtQMxyv2AHP4kDsm0oBRqmraKA/exec',
@@ -231,12 +231,6 @@
               <div id="login-form">
                 <div class="space-y-4">
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Pilih Sekolah</label>
-                    <select id="school-select" class="w-full px-4 py-3 border border-gray-200 rounded-xl input-focus focus:border-blue-500 focus:outline-none transition-all bg-gray-50">
-                      <option value="">Memuat data sekolah...</option>
-                    </select>
-                  </div>
-                  <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Username</label>
                     <div class="relative">
                       <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i data-lucide="user" class="w-5 h-5"></i></span>
@@ -287,34 +281,18 @@
         </div>
       `;
       lucide.createIcons();
-      loadSchools();
     }
 
     async function loadSchools() {
-      const select = document.getElementById('school-select');
+      // Dipanggil setelah login berhasil, untuk mengambil nama sekolah
+      // milik user (dropdown pemilihan sekolah sudah dihapus dari login).
       try {
         const result = await fetchFromSheet('getSchools');
         if (result.success && result.data) {
           schoolsData = result.data;
-          select.innerHTML = '<option value="">-- Pilih Sekolah --</option>' +
-            schoolsData.map(s => `<option value="${s.id}">${s.name}</option>`).join('');
-        } else {
-          // Demo data if API fails
-          schoolsData = [
-            { id: '1', name: 'SD Negeri 1 Contoh' },
-            { id: '2', name: 'SD Negeri 2 Contoh' },
-            { id: '3', name: 'SMP Negeri 1 Contoh' }
-          ];
-          select.innerHTML = '<option value="">-- Pilih Sekolah --</option>' +
-            schoolsData.map(s => `<option value="${s.id}">${s.name}</option>`).join('');
         }
       } catch (e) {
-        schoolsData = [
-          { id: '1', name: 'SD Negeri 1 Contoh' },
-          { id: '2', name: 'SD Negeri 2 Contoh' }
-        ];
-        select.innerHTML = '<option value="">-- Pilih Sekolah --</option>' +
-          schoolsData.map(s => `<option value="${s.id}">${s.name}</option>`).join('');
+        console.error('Gagal memuat data sekolah:', e);
       }
     }
 
@@ -332,7 +310,6 @@
     }
 
     async function handleLogin() {
-      const schoolId = document.getElementById('school-select').value;
       const username = document.getElementById('username').value.trim();
       const password = document.getElementById('password').value;
       const errorDiv = document.getElementById('login-error');
@@ -340,7 +317,7 @@
 
       errorDiv.classList.add('hidden');
 
-      if (!schoolId || !username || !password) {
+      if (!username || !password) {
         errorDiv.textContent = 'Mohon lengkapi semua field';
         errorDiv.classList.remove('hidden');
         return;
@@ -350,15 +327,12 @@
       btn.disabled = true;
 
       try {
-        const result = await postToSheet('login', { schoolId, username, password });
+        const result = await postToSheet('login', { username, password });
         
         if (result.success && result.user) {
           currentUser = result.user;
-          // Pastikan schoolId selalu terisi — ambil dari dropdown jika backend tidak mengembalikannya
-          if (!currentUser.schoolId) {
-            currentUser.schoolId = schoolId;
-          }
-          currentUser.schoolName = schoolsData.find(s => s.id === currentUser.schoolId)?.name || schoolsData.find(s => s.id === schoolId)?.name || '';
+          await loadSchools();
+          currentUser.schoolName = schoolsData.find(s => s.id === currentUser.schoolId)?.name || '';
           
           // Save to Data SDK
           if (window.dataSdk) {
@@ -3186,4 +3160,3 @@
         return monthStr;
       }
     }
-
