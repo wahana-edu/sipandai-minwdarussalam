@@ -222,7 +222,7 @@
             <div class="bg-white rounded-2xl card-shadow p-8 fade-in">
               <div class="text-center mb-8">
                 <div class="w-20 h-28 mx-auto mb-4 flex items-center justify-center shadow-lg overflow-hidden">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lambang_Kota_Mataram.png" alt="Logo" class="w-full h-full object-contain">
+                  <img src="https://id.wikipedia.org/wiki/Nahdlatul_Wathan#/media/Berkas:Logo_Nahdlatul_Wathan.png" alt="Logo" class="w-full h-full object-contain">
                 </div>
                 <h1 class="text-3xl font-bold text-gray-800 mb-2">${config.app_title || 'SIPANDAI'}</h1>
                 <p class="text-sm text-gray-500 leading-relaxed">Sistem Informasi Pengelolaan Pembelajaran dan Administrasi Digital</p>
@@ -379,7 +379,7 @@
           <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
               <div class="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden border border-gray-300 bg-gray-100">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lambang_Kota_Mataram.png" alt="Logo" class="w-6 h-6 object-contain">
+                <img src="https://id.wikipedia.org/wiki/Nahdlatul_Wathan#/media/Berkas:Logo_Nahdlatul_Wathan.png" alt="Logo" class="w-6 h-6 object-contain">
               </div>
               <div>
                 <h1 class="font-bold text-gray-800">${config.app_title || 'SIPANDAI'}</h1>
@@ -1299,7 +1299,7 @@
           <div class="header">
             <div class="header-top">
               <div class="header-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lambang_Kota_Mataram.png" alt="Logo">
+                <img src="https://id.wikipedia.org/wiki/Nahdlatul_Wathan#/media/Berkas:Logo_Nahdlatul_Wathan.png" alt="Logo">
               </div>
               <div class="header-text">
                 <h1>Jurnal Kegiatan Mengajar</h1>
@@ -2139,7 +2139,7 @@
             <div class="header">
               <div class="header-top">
                 <div class="header-logo">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lambang_Kota_Mataram.png" alt="Logo">
+                  <img src="https://id.wikipedia.org/wiki/Nahdlatul_Wathan#/media/Berkas:Logo_Nahdlatul_Wathan.png" alt="Logo">
                 </div>
                 <div>
                   <h1>Rekap Jurnal Mengajar</h1>
@@ -2487,7 +2487,7 @@
           <div class="header">
             <div class="header-top">
               <div class="header-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lambang_Kota_Mataram.png" alt="Logo">
+                <img src="https://id.wikipedia.org/wiki/Nahdlatul_Wathan#/media/Berkas:Logo_Nahdlatul_Wathan.png" alt="Logo">
               </div>
               <div class="header-text">
                 <h1>REKAP MASUKAN ORANG TUA SISWA</h1>
@@ -2945,7 +2945,7 @@
             <div class="header">
               <div class="header-top">
                 <div class="header-logo">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Lambang_Kota_Mataram.png" alt="Logo">
+                  <img src="https://id.wikipedia.org/wiki/Nahdlatul_Wathan#/media/Berkas:Logo_Nahdlatul_Wathan.png" alt="Logo">
                 </div>
                 <div class="header-text">
                   <h1>SARAN DAN MASUKAN ORANG TUA SISWA</h1>
