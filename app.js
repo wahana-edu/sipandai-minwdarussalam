@@ -66,11 +66,11 @@
     // Element SDK Setup
     const defaultConfig = {
       app_title: 'SIPANDAI',
-      primary_color: '#1e3a5f',
-      secondary_color: '#2563eb',
+      primary_color: '#166534',
+      secondary_color: '#15803d',
       background_color: '#f8fafc',
       text_color: '#1e293b',
-      accent_color: '#10b981'
+      accent_color: '#d97706'
     };
 
     let config = { ...defaultConfig };
@@ -234,14 +234,14 @@
                     <label class="block text-sm font-medium text-gray-700 mb-2">Username</label>
                     <div class="relative">
                       <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i data-lucide="user" class="w-5 h-5"></i></span>
-                      <input type="text" id="username" placeholder="Masukkan username" class="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl input-focus focus:border-blue-500 focus:outline-none transition-all bg-gray-50">
+                      <input type="text" id="username" placeholder="Masukkan username" class="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl input-focus focus:border-green-500 focus:outline-none transition-all bg-gray-50">
                     </div>
                   </div>
                   <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
                     <div class="relative">
                       <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i data-lucide="lock" class="w-5 h-5"></i></span>
-                      <input type="password" id="password" placeholder="Masukkan password" class="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl input-focus focus:border-blue-500 focus:outline-none transition-all bg-gray-50">
+                      <input type="password" id="password" placeholder="Masukkan password" class="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl input-focus focus:border-green-500 focus:outline-none transition-all bg-gray-50">
                       <button type="button" onclick="togglePassword()" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
                         <i data-lucide="eye" id="eye-icon" class="w-5 h-5"></i>
                       </button>
@@ -264,7 +264,7 @@
                     Lupa Password?
                   </a>
                   <a href="https://wa.me/082340039057" target="_blank" rel="noopener noreferrer"
-                     class="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors">
+                     class="flex items-center gap-2 text-green-600 hover:text-green-700 font-medium transition-colors">
                     <i data-lucide="message-circle" class="w-4 h-4"></i>
                     Butuh Bantuan?
                   </a>
@@ -388,7 +388,7 @@
             </div>
             <div class="flex items-center gap-2 sm:gap-4">
               ${currentUser.role !== 'kepala_sekolah' ? `
-              <button onclick="handleNotifBellClick()" id="notif-bell-btn" class="relative p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all" title="Notifikasi Komentar">
+              <button onclick="handleNotifBellClick()" id="notif-bell-btn" class="relative p-2 text-gray-500 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all" title="Notifikasi Komentar">
                 <i data-lucide="bell" class="w-5 h-5"></i>
                 <span id="notif-badge" class="hidden absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full items-center justify-center">0</span>
               </button>
@@ -397,7 +397,7 @@
                 <p class="font-medium text-gray-800">${currentUser.name}</p>
                 <p class="text-xs text-gray-500">${currentUser.schoolName}</p>
               </div>
-              <button onclick="showChangePasswordModal()" class="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all" title="Ganti Password">
+              <button onclick="showChangePasswordModal()" class="p-2 text-gray-500 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all" title="Ganti Password">
                 <i data-lucide="key-round" class="w-5 h-5"></i>
               </button>
               <button onclick="handleLogout()" class="p-2 text-gray-500 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all" title="Keluar">
@@ -457,7 +457,7 @@
           <div class="bg-white rounded-2xl p-6 w-full max-w-md card-shadow fade-in">
             <div class="flex items-center justify-between mb-4">
               <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
-                <i data-lucide="key-round" class="w-5 h-5 text-blue-600"></i>
+                <i data-lucide="key-round" class="w-5 h-5 text-green-600"></i>
                 Ganti Password
               </h3>
               <button onclick="closeChangePasswordModal()" class="text-gray-400 hover:text-gray-600">
@@ -467,15 +467,15 @@
             <div class="space-y-4">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Password Lama</label>
-                <input type="password" id="cp-old" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none" placeholder="Masukkan password lama">
+                <input type="password" id="cp-old" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none" placeholder="Masukkan password lama">
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Password Baru</label>
-                <input type="password" id="cp-new" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none" placeholder="Minimal 6 karakter">
+                <input type="password" id="cp-new" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none" placeholder="Minimal 6 karakter">
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Konfirmasi Password Baru</label>
-                <input type="password" id="cp-confirm" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none" placeholder="Ulangi password baru">
+                <input type="password" id="cp-confirm" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none" placeholder="Ulangi password baru">
               </div>
               <div id="cp-message" class="hidden"></div>
               <div class="flex gap-3 pt-2">
@@ -562,7 +562,7 @@
             <!-- Profile Card -->
             <div class="bg-white rounded-2xl p-6 card-shadow">
               <div class="flex items-center gap-4 mb-4">
-                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center text-white text-2xl font-bold">
+                <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-2xl flex items-center justify-center text-white text-2xl font-bold">
                   ${currentUser.name.charAt(0)}
                 </div>
                 <div>
@@ -588,7 +588,7 @@
 
             <!-- Quick Actions -->
             <div class="md:col-span-2 grid grid-cols-3 gap-4">
-              <button onclick="showJurnalForm()" class="bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-2xl p-6 text-center hover:shadow-lg transition-all card-shadow">
+              <button onclick="showJurnalForm()" class="bg-gradient-to-br from-green-500 to-green-700 text-white rounded-2xl p-6 text-center hover:shadow-lg transition-all card-shadow">
                 <div class="w-12 h-12 mx-auto mb-3 bg-white/20 rounded-xl flex items-center justify-center">
                   <i data-lucide="edit-3" class="w-6 h-6"></i>
                 </div>
@@ -634,80 +634,80 @@
       content.innerHTML = `
         <div class="fade-in">
           <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-            <i data-lucide="edit-3" class="w-6 h-6 text-blue-600"></i>
+            <i data-lucide="edit-3" class="w-6 h-6 text-green-600"></i>
             Isi Jurnal Kegiatan Mengajar
           </h3>
           <form id="jurnal-form" class="space-y-6">
             <div class="grid md:grid-cols-3 gap-4">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
-                <input type="date" id="j-tanggal" value="${today}" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+                <input type="date" id="j-tanggal" value="${today}" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Kelas</label>
-                <select id="j-kelas" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+                <select id="j-kelas" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
                   ${kelasOptions}
                 </select>
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Mata Pelajaran</label>
-                <input type="text" id="j-mapel" value="${currentUser.mapel || ''}" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+                <input type="text" id="j-mapel" value="${currentUser.mapel || ''}" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
               </div>
             </div>
 
             <div class="grid md:grid-cols-4 gap-4">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Jam Mulai</label>
-                <input type="time" id="j-jam-mulai" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+                <input type="time" id="j-jam-mulai" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Jam Selesai</label>
-                <input type="time" id="j-jam-selesai" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+                <input type="time" id="j-jam-selesai" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Hadir</label>
-                <input type="number" id="j-hadir" min="0" value="30" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+                <input type="number" id="j-hadir" min="0" value="30" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Sakit</label>
-                <input type="number" id="j-sakit" min="0" value="0" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+                <input type="number" id="j-sakit" min="0" value="0" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
               </div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-4">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Izin</label>
-                <input type="number" id="j-izin" min="0" value="0" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+                <input type="number" id="j-izin" min="0" value="0" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Tanpa Keterangan</label>
-                <input type="number" id="j-alpha" min="0" value="0" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+                <input type="number" id="j-alpha" min="0" value="0" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
               </div>
             </div>
 
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Tujuan Pembelajaran</label>
-              <textarea id="j-tujuan" rows="3" placeholder="Tuliskan tujuan pembelajaran..." class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none resize-none"></textarea>
+              <textarea id="j-tujuan" rows="3" placeholder="Tuliskan tujuan pembelajaran..." class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none resize-none"></textarea>
             </div>
 
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Model/Metode yang Digunakan</label>
-              <input type="text" id="j-metode" placeholder="Contoh: Discovery Learning, Project Based Learning" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+              <input type="text" id="j-metode" placeholder="Contoh: Discovery Learning, Project Based Learning" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
             </div>
 
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Tahapan & Catatan Pembelajaran</label>
-              <textarea id="j-catatan" rows="4" placeholder="Tuliskan tahapan dan catatan pembelajaran..." class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none resize-none"></textarea>
+              <textarea id="j-catatan" rows="4" placeholder="Tuliskan tahapan dan catatan pembelajaran..." class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none resize-none"></textarea>
             </div>
 
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Asesmen / Penilaian yang Dilakukan</label>
-              <textarea id="j-asesmen" rows="3" placeholder="Tuliskan asesmen atau penilaian yang dilakukan..." class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none resize-none"></textarea>
+              <textarea id="j-asesmen" rows="3" placeholder="Tuliskan asesmen atau penilaian yang dilakukan..." class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none resize-none"></textarea>
             </div>
 
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Catatan Perbaikan (Opsional)</label>
-              <textarea id="j-perbaikan" rows="2" placeholder="Tuliskan catatan perbaikan jika ada..." class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none resize-none"></textarea>
+              <textarea id="j-perbaikan" rows="2" placeholder="Tuliskan catatan perbaikan jika ada..." class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none resize-none"></textarea>
             </div>
 
             <div>
@@ -724,7 +724,7 @@
             </div>
 
             <div id="jurnal-message" class="hidden"></div>
-            <div id="jurnal-upload-status" class="hidden text-sm p-3 rounded-lg bg-blue-50 text-blue-600"></div>
+            <div id="jurnal-upload-status" class="hidden text-sm p-3 rounded-lg bg-green-50 text-green-600"></div>
 
             <div class="flex gap-4">
               <button type="button" onclick="submitJurnal()" id="submit-jurnal-btn" class="flex-1 btn-primary text-white py-3 rounded-xl font-semibold transition-all hover:shadow-lg flex items-center justify-center gap-2">
@@ -779,7 +779,7 @@
       }
       preview.innerHTML = selectedFiles.map((f, i) => `
         <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg text-left">
-          <i data-lucide="${f.type === 'application/pdf' ? 'file-text' : 'image'}" class="w-6 h-6 text-blue-600 shrink-0"></i>
+          <i data-lucide="${f.type === 'application/pdf' ? 'file-text' : 'image'}" class="w-6 h-6 text-green-600 shrink-0"></i>
           <div class="flex-1 min-w-0">
             <p class="font-medium text-gray-800 text-sm truncate">${f.name}</p>
             <p class="text-xs text-gray-500">${(f.size / 1024).toFixed(1)} KB</p>
@@ -835,7 +835,7 @@
           }
           if (dokUrlList.some(u => u)) {
             statusEl.textContent = `✓ ${dokUrlList.filter(u => u).length} berkas berhasil diupload`;
-            statusEl.className = 'text-sm p-3 rounded-lg bg-blue-50 text-blue-600';
+            statusEl.className = 'text-sm p-3 rounded-lg bg-green-50 text-green-600';
           }
         }
 
@@ -913,11 +913,11 @@
           <div class="grid md:grid-cols-3 gap-4 mb-6">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
-              <input type="date" id="guru-filter-tanggal" class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+              <input type="date" id="guru-filter-tanggal" class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
             </div>
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Kelas</label>
-              <select id="guru-filter-kelas" class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+              <select id="guru-filter-kelas" class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
                 <option value="">Semua Kelas</option>
                 <option value="I-A">I-A</option>
                 <option value="I-B">I-B</option>
@@ -968,7 +968,7 @@
               <div class="text-center py-12 text-gray-400">
                 <i data-lucide="inbox" class="w-16 h-16 mx-auto mb-4 opacity-50"></i>
                 <p>Belum ada jurnal yang tercatat</p>
-                <button onclick="showJurnalForm()" class="mt-4 text-blue-600 hover:underline">Isi jurnal pertama Anda</button>
+                <button onclick="showJurnalForm()" class="mt-4 text-green-600 hover:underline">Isi jurnal pertama Anda</button>
               </div>
             `;
             lucide.createIcons();
@@ -1017,13 +1017,13 @@
       list.innerHTML = `
         <div class="space-y-4">
           ${data.map((j, i) => `
-            <div class="bg-gray-50 rounded-xl p-4 text-left border ${j.komentarKepsek && j.komentarDibaca === 'Tidak' ? 'border-blue-400 ring-2 ring-blue-100' : 'border-gray-100'}">
+            <div class="bg-gray-50 rounded-xl p-4 text-left border ${j.komentarKepsek && j.komentarDibaca === 'Tidak' ? 'border-green-400 ring-2 ring-green-100' : 'border-gray-100'}">
               <div class="flex justify-between items-start mb-3">
                 <div>
                   <h4 class="font-semibold text-gray-800">${j.mapel} - ${j.kelas}</h4>
                   <p class="text-sm text-gray-500">${formatDate(j.tanggal)} | ${j.jamMulai || j.jam || '-'} - ${j.jamSelesai || '-'}</p>
                 </div>
-                <span class="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full">#${data.length - i}</span>
+                <span class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full">#${data.length - i}</span>
               </div>
               <div class="grid grid-cols-4 gap-2 mb-3 text-center">
                 <div class="bg-white p-2 rounded-lg">
@@ -1035,7 +1035,7 @@
                   <p class="text-xs text-gray-500">Sakit</p>
                 </div>
                 <div class="bg-white p-2 rounded-lg">
-                  <p class="text-lg font-bold text-blue-600">${j.izin || 0}</p>
+                  <p class="text-lg font-bold text-green-600">${j.izin || 0}</p>
                   <p class="text-xs text-gray-500">Izin</p>
                 </div>
                 <div class="bg-white p-2 rounded-lg">
@@ -1047,8 +1047,8 @@
               <p class="text-sm text-gray-600 mt-1"><span class="font-medium">Metode:</span> ${j.metode || '-'}</p>
               ${renderDokLinks(j.dokumentasiUrl, j.dokumentasiNama, 'blue', false)}
               ${j.komentarKepsek ? `
-                <div class="mt-3 bg-indigo-50 border border-indigo-100 rounded-lg p-3">
-                  <p class="font-medium text-indigo-700 text-sm mb-1 flex items-center gap-1">
+                <div class="mt-3 bg-amber-50 border border-amber-100 rounded-lg p-3">
+                  <p class="font-medium text-amber-700 text-sm mb-1 flex items-center gap-1">
                     <i data-lucide="message-circle" class="w-4 h-4"></i>
                     Catatan Kepala Sekolah
                     ${j.komentarDibaca === 'Tidak' ? '<span class="ml-1 bg-red-500 text-white text-[10px] px-2 py-0.5 rounded-full">Baru</span>' : ''}
@@ -1088,12 +1088,12 @@
           <div class="grid md:grid-cols-2 gap-6">
             <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h4 class="font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i>
+                <i data-lucide="calendar" class="w-5 h-5 text-green-600"></i>
                 Cetak Jurnal Harian
               </h4>
               <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-700 mb-2">Pilih Tanggal</label>
-                <input type="date" id="cetak-tanggal" value="${today.toISOString().split('T')[0]}" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+                <input type="date" id="cetak-tanggal" value="${today.toISOString().split('T')[0]}" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
               </div>
               <button onclick="cetakJurnalHarian()" class="w-full btn-primary text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2">
                 <i data-lucide="printer" class="w-5 h-5"></i>
@@ -1107,7 +1107,7 @@
               </h4>
               <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-700 mb-2">Pilih Bulan</label>
-                <input type="month" id="cetak-bulan" value="${currentMonth}" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+                <input type="month" id="cetak-bulan" value="${currentMonth}" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
               </div>
               <button onclick="cetakJurnalBulanan()" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2">
                 <i data-lucide="printer" class="w-5 h-5"></i>
@@ -1386,7 +1386,7 @@
             <!-- Profile Card -->
             <div class="bg-white rounded-2xl p-4 card-shadow">
               <div class="flex flex-col items-center text-center mb-3">
-                <div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-2xl flex items-center justify-center text-white text-xl font-bold mb-2">
+                <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-amber-700 rounded-2xl flex items-center justify-center text-white text-xl font-bold mb-2">
                   ${currentUser.name.charAt(0)}
                 </div>
                 <h2 class="font-bold text-gray-800 text-sm">${currentUser.name}</h2>
@@ -1405,7 +1405,7 @@
             </div>
 
             <!-- Stats Cards -->
-            <button onclick="showKepsekDetail('guru')" class="bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-2xl p-4 card-shadow hover:shadow-xl transition-all text-left w-full">
+            <button onclick="showKepsekDetail('guru')" class="bg-gradient-to-br from-green-500 to-green-700 text-white rounded-2xl p-4 card-shadow hover:shadow-xl transition-all text-left w-full">
               <div class="flex items-center gap-2 mb-2">
                 <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
                   <i data-lucide="users" class="w-5 h-5"></i>
@@ -1449,7 +1449,7 @@
           <!-- Tabs -->
           <div class="bg-white rounded-2xl card-shadow overflow-hidden">
             <div class="flex border-b border-gray-200">
-              <button onclick="showKepsekTab('jurnal')" id="tab-jurnal" class="flex-1 py-4 px-6 font-semibold text-blue-600 border-b-2 border-blue-600 bg-blue-50/50">
+              <button onclick="showKepsekTab('jurnal')" id="tab-jurnal" class="flex-1 py-4 px-6 font-semibold text-green-600 border-b-2 border-green-600 bg-green-50/50">
                 <i data-lucide="book-open" class="w-5 h-5 inline mr-2"></i>Rekap Jurnal Guru
               </button>
               <button onclick="showKepsekTab('masukan')" id="tab-masukan" class="flex-1 py-4 px-6 font-semibold text-gray-500 hover:text-gray-700">
@@ -1598,17 +1598,17 @@
       list.innerHTML = `
         <div class="space-y-3">
           ${data.map((guru, i) => `
-            <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-4 text-left border-l-4 border-blue-500">
+            <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-xl p-4 text-left border-l-4 border-green-500">
               <div class="flex items-center gap-3">
-                <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
                   ${guru.name.charAt(0)}
                 </div>
                 <div class="flex-1">
                   <h4 class="font-semibold text-gray-800">${guru.name}</h4>
                   <p class="text-sm text-gray-600">NIP: ${guru.nip || '-'}</p>
-                  <p class="text-xs text-blue-600 font-medium">${guru.mapel || 'N/A'}</p>
+                  <p class="text-xs text-green-600 font-medium">${guru.mapel || 'N/A'}</p>
                 </div>
-                <span class="text-xs bg-blue-200 text-blue-800 px-3 py-1 rounded-full">#${i + 1}</span>
+                <span class="text-xs bg-green-200 text-green-800 px-3 py-1 rounded-full">#${i + 1}</span>
               </div>
             </div>
           `).join('')}
@@ -1644,10 +1644,10 @@
       tabs.forEach(t => {
         const tabEl = document.getElementById(`tab-${t}`);
         if (t === tab) {
-          tabEl.classList.add('text-blue-600', 'border-b-2', 'border-blue-600', 'bg-blue-50/50');
+          tabEl.classList.add('text-green-600', 'border-b-2', 'border-green-600', 'bg-green-50/50');
           tabEl.classList.remove('text-gray-500');
         } else {
-          tabEl.classList.remove('text-blue-600', 'border-b-2', 'border-blue-600', 'bg-blue-50/50');
+          tabEl.classList.remove('text-green-600', 'border-b-2', 'border-green-600', 'bg-green-50/50');
           tabEl.classList.add('text-gray-500');
         }
       });
@@ -1667,17 +1667,17 @@
           <div class="grid md:grid-cols-4 gap-4 mb-6">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
-              <input type="date" id="filter-tanggal" class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+              <input type="date" id="filter-tanggal" class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
             </div>
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Kelas</label>
-              <select id="filter-kelas" class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+              <select id="filter-kelas" class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
                 <option value="">Memuat kelas...</option>
               </select>
             </div>
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Nama Guru</label>
-              <input type="text" id="filter-guru" placeholder="Cari nama guru..." class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+              <input type="text" id="filter-guru" placeholder="Cari nama guru..." class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
             </div>
             <div class="flex items-end gap-2">
               <button onclick="applyJurnalFilter()" class="flex-1 btn-primary text-white py-2 rounded-xl font-semibold flex items-center justify-center gap-2">
@@ -1789,8 +1789,8 @@
                 <p class="text-xl font-bold text-yellow-600">${j.sakit || 0}</p>
                 <p class="text-xs text-gray-500">Sakit</p>
               </div>
-              <div class="bg-blue-50 p-3 rounded-xl">
-                <p class="text-xl font-bold text-blue-600">${j.izin || 0}</p>
+              <div class="bg-green-50 p-3 rounded-xl">
+                <p class="text-xl font-bold text-green-600">${j.izin || 0}</p>
                 <p class="text-xs text-gray-500">Izin</p>
               </div>
               <div class="bg-red-50 p-3 rounded-xl">
@@ -1828,16 +1828,16 @@
 
             ${j.komentarKepsek ? `
               <div>
-                <p class="text-sm font-semibold text-indigo-700 mb-1 flex items-center gap-1">
+                <p class="text-sm font-semibold text-amber-700 mb-1 flex items-center gap-1">
                   <i data-lucide="message-circle" class="w-4 h-4"></i>
                   Komentar Kepala Sekolah
                 </p>
-                <p class="text-sm text-gray-700 bg-indigo-50 border border-indigo-100 rounded-lg p-3">${j.komentarKepsek}</p>
+                <p class="text-sm text-gray-700 bg-amber-50 border border-amber-100 rounded-lg p-3">${j.komentarKepsek}</p>
               </div>
             ` : ''}
 
             <div class="flex gap-3 pt-2">
-              <button type="button" onclick="closeJurnalDetailModal(); showKomentarModal('jurnal', '${j.id}', ${escapeHtml(JSON.stringify(j.komentarKepsek || ''))})" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-semibold transition-all hover:shadow-lg flex items-center justify-center gap-2">
+              <button type="button" onclick="closeJurnalDetailModal(); showKomentarModal('jurnal', '${j.id}', ${escapeHtml(JSON.stringify(j.komentarKepsek || ''))})" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-xl font-semibold transition-all hover:shadow-lg flex items-center justify-center gap-2">
                 <i data-lucide="message-circle" class="w-5 h-5"></i>
                 ${j.komentarKepsek ? 'Lihat/Edit Komentar' : 'Beri Komentar'}
               </button>
@@ -1866,17 +1866,17 @@
         <div class="bg-white rounded-2xl p-6 w-full max-w-lg card-shadow fade-in">
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
-              <i data-lucide="message-circle" class="w-5 h-5 text-indigo-600"></i>
+              <i data-lucide="message-circle" class="w-5 h-5 text-amber-600"></i>
               ${existingComment ? 'Edit Komentar' : 'Beri Komentar'}
             </h3>
             <button onclick="closeKomentarModal()" class="text-gray-400 hover:text-gray-600">
               <i data-lucide="x" class="w-5 h-5"></i>
             </button>
           </div>
-          <textarea id="komentar-text" rows="5" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-indigo-500 focus:outline-none resize-none" placeholder="Tuliskan komentar, arahan, atau apresiasi Anda di sini...">${escapeHtml(existingComment || '')}</textarea>
+          <textarea id="komentar-text" rows="5" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-amber-500 focus:outline-none resize-none" placeholder="Tuliskan komentar, arahan, atau apresiasi Anda di sini...">${escapeHtml(existingComment || '')}</textarea>
           <div id="komentar-modal-message" class="hidden mt-2"></div>
           <div class="flex gap-3 pt-4">
-            <button type="button" onclick="submitKomentar('${type}', '${id}')" id="komentar-submit-btn" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-semibold transition-all hover:shadow-lg flex items-center justify-center gap-2">
+            <button type="button" onclick="submitKomentar('${type}', '${id}')" id="komentar-submit-btn" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-xl font-semibold transition-all hover:shadow-lg flex items-center justify-center gap-2">
               <i data-lucide="send" class="w-5 h-5"></i>
               Kirim Komentar
             </button>
@@ -1997,7 +1997,7 @@
                 <td class="px-4 py-3">${j.mapel || '-'}</td>
                 <td class="px-4 py-3 text-center text-green-600 font-medium">${j.hadir || 0}</td>
                 <td class="px-4 py-3 text-center text-yellow-600 font-medium">${j.sakit || 0}</td>
-                <td class="px-4 py-3 text-center text-blue-600 font-medium">${j.izin || 0}</td>
+                <td class="px-4 py-3 text-center text-green-600 font-medium">${j.izin || 0}</td>
                 <td class="px-4 py-3 text-center text-red-600 font-medium">${j.alpha || 0}</td>
                 <td class="px-4 py-3">${j.metode || '-'}</td>
                 <td class="px-4 py-3">
@@ -2009,7 +2009,7 @@
                       <i data-lucide="eye" class="w-3.5 h-3.5"></i>
                       Lihat Detail
                     </button>
-                    <button onclick="showKomentarModal('jurnal', '${j.id}', ${escapeHtml(JSON.stringify(j.komentarKepsek || ''))})" class="text-xs px-3 py-1.5 rounded-lg font-medium transition-all ${j.komentarKepsek ? 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'} flex items-center gap-1 whitespace-nowrap">
+                    <button onclick="showKomentarModal('jurnal', '${j.id}', ${escapeHtml(JSON.stringify(j.komentarKepsek || ''))})" class="text-xs px-3 py-1.5 rounded-lg font-medium transition-all ${j.komentarKepsek ? 'bg-amber-100 text-amber-700 hover:bg-amber-200' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'} flex items-center gap-1 whitespace-nowrap">
                       <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
                       ${j.komentarKepsek ? 'Lihat/Edit' : 'Komentar'}
                     </button>
@@ -2221,17 +2221,17 @@
           <div class="grid md:grid-cols-4 gap-4 mb-6">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
-              <input type="date" id="filter-masukan-tanggal" class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+              <input type="date" id="filter-masukan-tanggal" class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
             </div>
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Kelas</label>
-              <select id="filter-masukan-kelas" class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+              <select id="filter-masukan-kelas" class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
                 <option value="">Memuat kelas...</option>
               </select>
             </div>
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">Nama Orang Tua</label>
-              <input type="text" id="filter-masukan-ortu" placeholder="Cari nama..." class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none">
+              <input type="text" id="filter-masukan-ortu" placeholder="Cari nama..." class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:border-green-500 focus:outline-none">
             </div>
             <div class="flex items-end gap-2">
               <button onclick="applyMasukanFilter()" class="flex-1 btn-primary text-white py-2 rounded-xl font-semibold flex items-center justify-center gap-2">
@@ -2363,7 +2363,7 @@
       }
 
       list.innerHTML = data.map(m => `
-        <div class="bg-gray-50 rounded-xl p-4 border ${m.komentarKepsek && m.komentarDibaca === 'Tidak' ? 'border-indigo-300 ring-2 ring-indigo-100' : 'border-gray-100'}" data-masukan-card="true" data-tanggal="${formatDate(m.tanggal)}" data-kelas="${m.kelas}" data-ortu="${m.ortuNama}">
+        <div class="bg-gray-50 rounded-xl p-4 border ${m.komentarKepsek && m.komentarDibaca === 'Tidak' ? 'border-amber-300 ring-2 ring-amber-100' : 'border-gray-100'}" data-masukan-card="true" data-tanggal="${formatDate(m.tanggal)}" data-kelas="${m.kelas}" data-ortu="${m.ortuNama}">
           <div class="flex justify-between items-start mb-3">
             <div>
               <h4 class="font-semibold text-gray-800">${m.ortuNama}</h4>
@@ -2375,8 +2375,8 @@
             ${renderMasukanJawabanBlocks(m)}
             ${m.dokumentasiUrl ? `<div class="bg-orange-50 p-3 rounded-lg">${renderDokLinks(m.dokumentasiUrl, m.dokumentasiNama, 'orange', false)}</div>` : ''}
             ${m.komentarKepsek ? `
-              <div class="bg-indigo-50 border border-indigo-100 rounded-lg p-3">
-                <p class="font-medium text-indigo-700 text-xs mb-1 flex items-center gap-1">
+              <div class="bg-amber-50 border border-amber-100 rounded-lg p-3">
+                <p class="font-medium text-amber-700 text-xs mb-1 flex items-center gap-1">
                   <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
                   Komentar Anda ke Orang Tua
                 </p>
@@ -2385,7 +2385,7 @@
             ` : ''}
           </div>
           <div class="mt-3 flex justify-end">
-            <button onclick="showKomentarModal('masukan', '${m.id}', ${escapeHtml(JSON.stringify(m.komentarKepsek || ''))})" class="text-xs px-3 py-1.5 rounded-lg font-medium transition-all ${m.komentarKepsek ? 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'} flex items-center gap-1">
+            <button onclick="showKomentarModal('masukan', '${m.id}', ${escapeHtml(JSON.stringify(m.komentarKepsek || ''))})" class="text-xs px-3 py-1.5 rounded-lg font-medium transition-all ${m.komentarKepsek ? 'bg-amber-100 text-amber-700 hover:bg-amber-200' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'} flex items-center gap-1">
               <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
               ${m.komentarKepsek ? 'Lihat/Edit Komentar' : 'Beri Komentar'}
             </button>
@@ -2580,7 +2580,7 @@
             </button>
 
             <!-- Rekap Masukan -->
-            <button onclick="showRekapMasukan()" class="bg-gradient-to-br from-blue-500 to-blue-700 text-white rounded-2xl p-4 text-center hover:shadow-lg transition-all card-shadow flex flex-col items-center justify-center md:col-span-1">
+            <button onclick="showRekapMasukan()" class="bg-gradient-to-br from-green-500 to-green-700 text-white rounded-2xl p-4 text-center hover:shadow-lg transition-all card-shadow flex flex-col items-center justify-center md:col-span-1">
               <div class="w-10 h-10 mb-2 bg-white/20 rounded-xl flex items-center justify-center">
                 <i data-lucide="history" class="w-5 h-5"></i>
               </div>
@@ -2633,7 +2633,7 @@
                       <span class="text-xs text-gray-500">${formatDate(m.tanggal)}</span>
                     </div>
                     <p class="text-sm text-gray-600"><span class="font-medium">Ringkasan:</span> ${(m.jawaban1 || m.jawaban2 || m.jawaban3 || m.jawaban4 || m.jawaban5 || 'Tidak ada jawaban teks (mungkin hanya lampiran dokumen)').substring(0, 60)}${(m.jawaban1 || m.jawaban2 || m.jawaban3 || m.jawaban4 || m.jawaban5 || '').length > 60 ? '...' : ''}</p>
-                    ${m.komentarKepsek ? `<p class="text-xs text-indigo-600 mt-1 inline-flex items-center gap-1"><i data-lucide="message-circle" class="w-3 h-3"></i>Sudah ditanggapi kepala sekolah</p>` : ''}
+                    ${m.komentarKepsek ? `<p class="text-xs text-amber-600 mt-1 inline-flex items-center gap-1"><i data-lucide="message-circle" class="w-3 h-3"></i>Sudah ditanggapi kepala sekolah</p>` : ''}
                     ${m.dokumentasiUrl ? `<a href="${(m.dokumentasiUrl || '').split('|')[0]}" target="_blank" rel="noopener noreferrer" class="text-xs text-teal-600 hover:underline mt-2 inline-flex items-center gap-1"><i data-lucide="external-link" class="w-3 h-3"></i>Lihat dokumen</a>` : ''}
                   </div>
                 `).join('')}
@@ -2680,7 +2680,7 @@
               </div>
             </div>
 
-            <div class="bg-blue-50 border border-blue-100 rounded-xl p-3 text-xs text-blue-700 flex items-start gap-2">
+            <div class="bg-green-50 border border-green-100 rounded-xl p-3 text-xs text-green-700 flex items-start gap-2">
               <i data-lucide="info" class="w-4 h-4 shrink-0 mt-0.5"></i>
               <span>Semua pertanyaan di bawah ini bersifat <strong>opsional</strong>. Bapak/Ibu dapat mengisi salah satu, beberapa, atau seluruh pertanyaan sesuai yang ingin disampaikan.</span>
             </div>
@@ -2724,7 +2724,7 @@
             </div>
 
             <div id="masukan-message" class="hidden"></div>
-            <div id="masukan-upload-status" class="hidden text-sm p-3 rounded-lg bg-blue-50 text-blue-600"></div>
+            <div id="masukan-upload-status" class="hidden text-sm p-3 rounded-lg bg-green-50 text-green-600"></div>
 
             <div class="flex gap-4">
               <button type="button" onclick="submitMasukan()" id="submit-masukan-btn" class="flex-1 bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-xl font-semibold transition-all hover:shadow-lg flex items-center justify-center gap-2">
@@ -2806,7 +2806,7 @@
       content.innerHTML = `
         <div class="fade-in">
           <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-            <i data-lucide="history" class="w-6 h-6 text-blue-600"></i>
+            <i data-lucide="history" class="w-6 h-6 text-green-600"></i>
             Rekap Saran & Masukan Saya
           </h3>
           <div id="rekap-masukan-list" class="text-center py-8">
@@ -2866,7 +2866,7 @@
       list.innerHTML = `
         <div class="space-y-4">
           ${data.map((m, i) => `
-            <div class="bg-gray-50 rounded-xl p-4 text-left border ${m.komentarKepsek && m.komentarDibaca === 'Tidak' ? 'border-blue-400 ring-2 ring-blue-100' : 'border-gray-100'}">
+            <div class="bg-gray-50 rounded-xl p-4 text-left border ${m.komentarKepsek && m.komentarDibaca === 'Tidak' ? 'border-green-400 ring-2 ring-green-100' : 'border-gray-100'}">
               <div class="flex justify-between items-start mb-3">
                 <div>
                   <h4 class="font-semibold text-gray-800">Masukan #${data.length - i}</h4>
@@ -2877,8 +2877,8 @@
                 ${renderMasukanJawabanBlocks(m)}
                 ${m.dokumentasiUrl ? `<div class="bg-orange-50 p-3 rounded-lg">${renderDokLinks(m.dokumentasiUrl, m.dokumentasiNama, 'orange', false)}</div>` : ''}
                 ${m.komentarKepsek ? `
-                  <div class="bg-indigo-50 border border-indigo-100 rounded-lg p-3">
-                    <p class="font-medium text-indigo-700 text-sm mb-1 flex items-center gap-1">
+                  <div class="bg-amber-50 border border-amber-100 rounded-lg p-3">
+                    <p class="font-medium text-amber-700 text-sm mb-1 flex items-center gap-1">
                       <i data-lucide="message-circle" class="w-4 h-4"></i>
                       Tanggapan Kepala Sekolah
                       ${m.komentarDibaca === 'Tidak' ? '<span class="ml-1 bg-red-500 text-white text-[10px] px-2 py-0.5 rounded-full">Baru</span>' : ''}
@@ -3054,7 +3054,7 @@
           }
           if (dokUrlList.some(u => u) && statusEl) {
             statusEl.textContent = `✓ ${dokUrlList.filter(u => u).length} berkas berhasil diupload`;
-            statusEl.className = 'text-sm p-3 rounded-lg bg-blue-50 text-blue-600';
+            statusEl.className = 'text-sm p-3 rounded-lg bg-green-50 text-green-600';
           }
         }
 
