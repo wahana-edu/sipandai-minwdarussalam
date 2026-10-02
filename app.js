@@ -181,9 +181,9 @@
       }
 
       // Validasi tipe file
-      const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'application/pdf'];
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
       if (!allowedTypes.includes(file.type)) {
-        return { success: false, message: 'Tipe file tidak didukung. Gunakan JPG, PNG, atau PDF.' };
+        return { success: false, message: 'Tipe file tidak didukung. Gunakan JPG, PNG, PDF, atau DOC/DOCX.' };
       }
 
       return new Promise((resolve) => {
@@ -723,6 +723,27 @@
               </div>
             </div>
 
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Dokumentasi / Perencanaan Pembelajaran (RPP) — Opsional</label>
+              <p class="text-xs text-gray-400 mb-2">Isi salah satu saja: tempel link, ATAU upload berkas langsung.</p>
+              <div class="space-y-2">
+                <div class="relative">
+                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i data-lucide="link" class="w-5 h-5"></i></span>
+                  <input type="url" id="j-link-perencanaan" placeholder="https://drive.google.com/... atau link lainnya" class="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl input-focus focus:border-green-500 focus:outline-none transition-all">
+                </div>
+                <div class="text-center text-xs text-gray-400">— atau —</div>
+                <div class="border-2 border-dashed border-gray-200 rounded-xl p-4 text-center">
+                  <input type="file" id="j-file-perencanaan" accept="image/*,.pdf,.doc,.docx" class="hidden" onchange="handleFilePerencanaanSelect(this)">
+                  <label for="j-file-perencanaan" class="cursor-pointer">
+                    <i data-lucide="file-up" class="w-8 h-8 mx-auto text-gray-400 mb-1"></i>
+                    <p class="text-gray-500 text-sm">Klik untuk upload berkas perencanaan pembelajaran</p>
+                    <p class="text-xs text-gray-400 mt-1">10MB • JPG, PNG, PDF, DOC, DOCX</p>
+                  </label>
+                  <div id="file-perencanaan-preview" class="mt-3"></div>
+                </div>
+              </div>
+            </div>
+
             <div id="jurnal-message" class="hidden"></div>
             <div id="jurnal-upload-status" class="hidden text-sm p-3 rounded-lg bg-green-50 text-green-600"></div>
 
@@ -798,6 +819,62 @@
       lucide.createIcons();
     }
 
+    let selectedFilePerencanaan = null;
+
+    function handleFilePerencanaanSelect(input) {
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+      const maxSize = 10 * 1024 * 1024;
+      const file = input.files[0];
+      if (!file) return;
+
+      if (!allowedTypes.includes(file.type)) {
+        showMessage('jurnal-message', `"${file.name}" tidak didukung. Gunakan JPG, PNG, PDF, atau DOC/DOCX.`, 'error');
+        input.value = '';
+        return;
+      }
+      if (file.size > maxSize) {
+        showMessage('jurnal-message', `"${file.name}" terlalu besar. Maksimal 10MB.`, 'error');
+        input.value = '';
+        return;
+      }
+
+      // Kalau upload berkas dipilih, kosongkan field link supaya tidak ambigu
+      const linkInput = document.getElementById('j-link-perencanaan');
+      if (linkInput) linkInput.value = '';
+
+      selectedFilePerencanaan = file;
+      renderFilePerencanaanPreview();
+    }
+
+    function renderFilePerencanaanPreview() {
+      const preview = document.getElementById('file-perencanaan-preview');
+      if (!preview) return;
+      if (!selectedFilePerencanaan) {
+        preview.innerHTML = '';
+        return;
+      }
+      preview.innerHTML = `
+        <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg text-left">
+          <i data-lucide="file-text" class="w-6 h-6 text-green-600 shrink-0"></i>
+          <div class="flex-1 min-w-0">
+            <p class="font-medium text-gray-800 text-sm truncate">${selectedFilePerencanaan.name}</p>
+            <p class="text-xs text-gray-500">${(selectedFilePerencanaan.size / 1024).toFixed(1)} KB</p>
+          </div>
+          <button type="button" onclick="removeFilePerencanaan()" class="text-red-400 hover:text-red-600 shrink-0">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    function removeFilePerencanaan() {
+      selectedFilePerencanaan = null;
+      const input = document.getElementById('j-file-perencanaan');
+      if (input) input.value = '';
+      renderFilePerencanaanPreview();
+    }
+
     function removeFile(index) {
       selectedFiles.splice(index, 1);
       renderJurnalFilePreview();
@@ -839,6 +916,25 @@
           }
         }
 
+        // Link atau berkas perencanaan pembelajaran (RPP) — isi salah satu
+        let linkPerencanaan = (document.getElementById('j-link-perencanaan').value || '').trim();
+        let namaPerencanaan = linkPerencanaan ? 'Link Eksternal' : '';
+
+        if (selectedFilePerencanaan) {
+          statusEl.textContent = `📤 Mengupload berkas perencanaan: ${selectedFilePerencanaan.name}...`;
+          statusEl.classList.remove('hidden');
+          const upResult = await uploadToDrive(selectedFilePerencanaan, 'jurnal_perencanaan');
+          if (upResult.success) {
+            linkPerencanaan = upResult.data.fileUrl || '';
+            namaPerencanaan = upResult.data.fileName || selectedFilePerencanaan.name;
+            statusEl.textContent = `✓ Berkas perencanaan berhasil diupload`;
+            statusEl.className = 'text-sm p-3 rounded-lg bg-green-50 text-green-600';
+          } else {
+            statusEl.textContent = `⚠️ Gagal upload berkas perencanaan: ${upResult.message || upResult.error || 'Terjadi kesalahan'}`;
+            statusEl.className = 'text-sm p-3 rounded-lg bg-red-50 text-red-600';
+          }
+        }
+
         const jurnalData = {
           tanggal: document.getElementById('j-tanggal').value,
           kelas: document.getElementById('j-kelas').value,
@@ -856,6 +952,8 @@
           perbaikan: document.getElementById('j-perbaikan').value,
           dokumentasiNama: dokNamaList.join('|'),
           dokumentasiUrl:  dokUrlList.join('|'),
+          linkPerencanaan: linkPerencanaan,
+          namaPerencanaan: namaPerencanaan,
           guruId: currentUser.id,
           guruNama: currentUser.name,
           schoolId: currentUser.schoolId,
@@ -884,6 +982,7 @@
 
         showMessage('jurnal-message', 'Jurnal berhasil disimpan!', 'success');
         selectedFiles = [];
+        selectedFilePerencanaan = null;
         renderJurnalFilePreview();
         
         setTimeout(() => {
@@ -1045,7 +1144,13 @@
               </div>
               <p class="text-sm text-gray-600"><span class="font-medium">Tujuan:</span> ${j.tujuan || '-'}</p>
               <p class="text-sm text-gray-600 mt-1"><span class="font-medium">Metode:</span> ${j.metode || '-'}</p>
-              ${renderDokLinks(j.dokumentasiUrl, j.dokumentasiNama, 'blue', false)}
+              ${renderDokLinks(j.dokumentasiUrl, j.dokumentasiNama, 'green', false)}
+              ${j.linkPerencanaan ? `
+                <a href="${j.linkPerencanaan}" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-2 bg-teal-50 text-teal-700 px-3 py-2 rounded-lg text-sm hover:bg-teal-100 transition-all">
+                  <i data-lucide="file-text" class="w-4 h-4"></i>
+                  ${j.namaPerencanaan || 'Perencanaan Pembelajaran (RPP)'}
+                </a>
+              ` : ''}
               ${j.komentarKepsek ? `
                 <div class="mt-3 bg-amber-50 border border-amber-100 rounded-lg p-3">
                   <p class="font-medium text-amber-700 text-sm mb-1 flex items-center gap-1">
@@ -1221,7 +1326,7 @@
     }
 
     // Helper: render link dokumentasi (support multi-file dipisah |)
-    function renderDokLinks(urlStr, namaStr, colorClass = 'blue', compact = false) {
+    function renderDokLinks(urlStr, namaStr, colorClass = 'green', compact = false) {
       if (!urlStr) return '';
       const urls  = urlStr.split('|').filter(u => u);
       const namas = namaStr ? namaStr.split('|') : [];
@@ -1822,7 +1927,16 @@
             <div>
               <p class="text-sm font-semibold text-gray-700 mb-1">Dokumentasi</p>
               <div class="bg-gray-50 rounded-lg p-3">
-                ${renderDokLinks(j.dokumentasiUrl, j.dokumentasiNama, 'blue', false) || '<span class="text-sm text-gray-400">Tidak ada dokumentasi</span>'}
+                ${renderDokLinks(j.dokumentasiUrl, j.dokumentasiNama, 'green', false) || '<span class="text-sm text-gray-400">Tidak ada dokumentasi</span>'}
+              </div>
+            </div>
+
+            <div>
+              <p class="text-sm font-semibold text-gray-700 mb-1">Perencanaan Pembelajaran (RPP)</p>
+              <div class="bg-gray-50 rounded-lg p-3">
+                ${j.linkPerencanaan
+                  ? `<a href="${j.linkPerencanaan}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-teal-50 text-teal-700 px-3 py-2 rounded-lg text-sm hover:bg-teal-100 transition-all"><i data-lucide="file-text" class="w-4 h-4"></i>${j.namaPerencanaan || 'Lihat Perencanaan'}</a>`
+                  : '<span class="text-sm text-gray-400">Tidak ada</span>'}
               </div>
             </div>
 
@@ -2001,7 +2115,10 @@
                 <td class="px-4 py-3 text-center text-red-600 font-medium">${j.alpha || 0}</td>
                 <td class="px-4 py-3">${j.metode || '-'}</td>
                 <td class="px-4 py-3">
-                  ${renderDokLinks(j.dokumentasiUrl, j.dokumentasiNama, 'blue', true) || '<span class="text-gray-400">-</span>'}
+                  <div class="flex flex-col gap-1 items-start">
+                    ${renderDokLinks(j.dokumentasiUrl, j.dokumentasiNama, 'green', true) || '<span class="text-gray-400">-</span>'}
+                    ${j.linkPerencanaan ? `<a href="${j.linkPerencanaan}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 bg-teal-50 text-teal-700 px-2 py-1 rounded text-xs hover:bg-teal-100 transition-all"><i data-lucide="file-text" class="w-3 h-3"></i>RPP</a>` : ''}
+                  </div>
                 </td>
                 <td class="px-4 py-3">
                   <div class="flex flex-col gap-1.5">
