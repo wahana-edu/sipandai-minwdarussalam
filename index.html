@@ -33,9 +33,27 @@
     initSDKs();
     const _session = loadSession();
     if (_session) {
-      window.location.href = pageForRole(_session.role);
+      const _target = pageForRole(_session.role);
+      // Jaga-jaga: kalau role di sesi tidak dikenali (tidak cocok ke halaman
+      // manapun), jangan redirect ke diri sendiri — itu memicu loop loading
+      // tanpa henti. Hapus sesi & tampilkan form login saja.
+      if (!_target || _target === 'index.html') {
+        clearSession();
+        renderApp();
+      } else {
+        window.location.href = _target;
+      }
     } else {
       renderApp();
+      if (new URLSearchParams(location.search).get('err') === 'role') {
+        setTimeout(() => {
+          const errorDiv = document.getElementById('login-error');
+          if (errorDiv) {
+            errorDiv.textContent = 'Role akun tidak dikenali sistem. Hubungi admin untuk memeriksa kolom Role di sheet Pengguna.';
+            errorDiv.classList.remove('hidden');
+          }
+        }, 0);
+      }
     }
   </script>
  </body>
