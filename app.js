@@ -48,7 +48,16 @@
         return null;
       }
       if (requiredRole && session.role !== requiredRole) {
-        window.location.href = pageForRole(session.role);
+        const target = pageForRole(session.role);
+        // Jaga-jaga: kalau role di sesi tidak dikenali (tidak cocok ke halaman
+        // manapun), jangan redirect ke index.html — itu akan memicu loop
+        // bolak-balik tanpa henti. Hapus sesi & tampilkan login dengan pesan.
+        if (!target || target === 'index.html') {
+          clearSession();
+          window.location.href = 'index.html?err=role';
+          return null;
+        }
+        window.location.href = target;
         return null;
       }
       currentUser = session;
